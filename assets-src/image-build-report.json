@@ -50,17 +50,17 @@
   },
   {
     "name": "farmland",
-    "kind": "crop",
-    "from": "396x256",
+    "kind": "upscaled",
+    "from": "1584x1024",
     "out": "1200x776",
-    "kb": 95
+    "kb": 105
   },
   {
     "name": "partnership-handshake",
-    "kind": "crop",
-    "from": "334x87",
+    "kind": "upscaled",
+    "from": "1336x348",
     "out": "1000x260",
-    "kb": 10
+    "kb": 11
   },
   {
     "name": "packaging-gift-box",
