@@ -41,7 +41,7 @@ export default function BecomeAPartnerPage() {
                 <Icon name={b.icon} className="size-9 shrink-0 text-green" />
                 <div>
                   <h3 className="font-display text-[17px] font-bold text-navy">{b.title}</h3>
-                  <p className="mt-1 text-[15px] leading-[1.55] text-ink-2">{b.body}</p>
+                  <p className="mt-1 text-[16px] leading-[1.55] text-ink-2">{b.body}</p>
                 </div>
               </li>
             ))}
@@ -52,7 +52,7 @@ export default function BecomeAPartnerPage() {
         <div className="container-site grid gap-10 lg:grid-cols-[1fr_300px]">
           <div className="rounded-md bg-white p-6 shadow-[0_1px_2px_rgba(26,36,83,0.06)] sm:p-8">
             <h2 id="form-heading" className="title-section">Partnership inquiry</h2>
-            <p className="mb-6 mt-2 text-[15px] text-ink-2">It takes about three minutes. Our team reviews every partnership inquiry it receives.</p>
+            <p className="mb-6 mt-2 text-[16px] text-ink-2">It takes about three minutes. Our team reviews every partnership inquiry it receives.</p>
             <PartnershipForm />
           </div>
           <div className="space-y-6">

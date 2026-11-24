@@ -22,7 +22,7 @@ export default function DocumentsPage() {
               <ul className="divide-y divide-line border-y border-line">
                 {documents.map((d) => (
                   <li key={d.file} className="flex items-center justify-between gap-4 py-4">
-                    <div><p className="font-semibold text-navy">{d.title}</p><p className="text-[14px] text-ink-2">{d.description}</p></div>
+                    <div><p className="font-semibold text-navy">{d.title}</p><p className="text-[16px] text-ink-2">{d.description}</p></div>
                     <a href={d.file} download className="btn btn-outline-dark btn-sm"><Download aria-hidden="true" className="size-4" />Download<span className="sr-only"> {d.title}</span> ({d.size})</a>
                   </li>
                 ))}

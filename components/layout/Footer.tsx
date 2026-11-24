@@ -45,7 +45,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-[calc(215*var(--u))_calc(129*var(--u))_calc(133*var(--u))_calc(129*var(--u))_calc(128*var(--u))_1fr] lg:gap-x-0 lg:gap-y-0">
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <BrandLogo variant="dark" width="clamp(140px, calc(145 * var(--u)), 200px)" />
-            <p className="mt-4 max-w-[30ch] text-[14px] leading-[1.5] text-white/90 lg:mt-[calc(8*var(--u))] lg:max-w-[calc(160*var(--u))] lg:text-[max(11.5px,calc(10*var(--u)))] lg:leading-[1.38]">
+            <p className="mt-4 max-w-[30ch] text-[16px] leading-[1.5] text-white/90 lg:mt-[calc(8*var(--u))] lg:max-w-[calc(160*var(--u))] lg:text-[max(11.5px,calc(10*var(--u)))] lg:leading-[1.38]">
               {site.footerBlurb}
             </p>
             <SocialLinks />

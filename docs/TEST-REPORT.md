@@ -11,7 +11,7 @@ production build (`next build && next start`).
 | Types | `npm run typecheck` | Pass |
 | Production build | `npm run build` | Pass. 39 routes, 34 prerendered; ~111 kB first-load JS on most pages |
 | Unit tests | `npm test` | **17/17 pass** |
-| End-to-end tests | `npm run test:e2e` | **50/50 pass** (desktop Chromium + Pixel 7 emulation) |
+| End-to-end tests | `npm run test:e2e` | **53/53 pass** (desktop Chromium + Pixel 7 emulation) |
 | Accessibility (axe, WCAG 2.2 AA tags) | in e2e | 0 serious/critical violations on 14 key pages |
 | Lighthouse | see below | Accessibility 100, Best practices 100, SEO 100 (indexing on) |
 
@@ -81,6 +81,27 @@ performed. Run `npx playwright install firefox webkit` and add the projects to
   - draft articles return 404 in production;
   - CSP, `nosniff`, Referrer-Policy and no `X-Powered-By`;
   - every image has alt text, the hero image is not lazy-loaded and below-the-fold images are.
+
+## UI/UX Pro Max audit
+
+The site was audited against the `ui-ux-pro-max` skill's priority checklist (accessibility, touch,
+performance, style, layout, forms). The skill's generated design system suggested a slate-navy and
+blue palette with Plus Jakarta Sans. That was **not adopted**, because the official brand guide
+takes precedence. Its structural guidance matched the build (trust-first layout, quote-led calls
+to action, high contrast, visible focus).
+
+Gaps found and fixed:
+
+| Rule | Finding | Fix |
+|---|---|---|
+| `error-summary` (high) | Summary listed problems without links | Each item links to its field and moves focus there |
+| `inline-validation` (medium) | Validation only ran on submit | Fields are checked on blur once they have a value (or already show an error). The summary appears only after a failed submit |
+| `readable-font-size` (high) | Some mobile body text was 14–15 px | Mobile body copy raised to 16 px. Desktop reference sizes unchanged |
+| `cursor-pointer` | Tailwind 4 resets buttons to the default cursor | Pointer cursor restored on buttons, summaries, checkbox labels and selects |
+| `tap-delay` | No `touch-action` | `touch-action: manipulation` on interactive elements |
+
+Three new e2e tests cover these fixes: summary links focus their fields, on-blur validation (with no
+errors from tabbing through empty fields), and the pointer cursor.
 
 ## Lighthouse 12 (mobile emulation, simulated slow 4G)
 

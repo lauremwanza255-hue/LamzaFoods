@@ -19,7 +19,7 @@ export function CtaBand({
       <div className="container-site flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between lg:py-[calc(30*var(--u))]">
         <div>
           <h2 className="font-display text-[26px] leading-tight lg:text-[calc(22*var(--u))]">{title}</h2>
-          <p className="mt-2 max-w-[56ch] text-[15px] leading-[1.6] text-white/90 lg:text-[max(14px,calc(11.5*var(--u)))]">{body}</p>
+          <p className="mt-2 max-w-[56ch] text-[16px] leading-[1.6] text-white/90 lg:text-[max(14px,calc(11.5*var(--u)))]">{body}</p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link href={primary.href} className="btn btn-primary">

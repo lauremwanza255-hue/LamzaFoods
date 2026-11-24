@@ -37,7 +37,7 @@ export default function PrivacyPolicyPage() {
             <p>You may ask to see, correct or delete the personal information we hold about you, or withdraw your consent, by contacting us. Canadian privacy law, including PIPEDA and, where applicable, Alberta’s Personal Information Protection Act, may give you further rights.</p>
             <h2>Contact</h2>
             <p>Questions about this policy? <Link href="/contact">Contact us</Link>.</p>
-            <p className="text-[14px] text-ink-2">Last updated: [date of approval]</p>
+            <p className="text-[16px] text-ink-2">Last updated: [date of approval]</p>
           </Prose>
         </div>
       </section>

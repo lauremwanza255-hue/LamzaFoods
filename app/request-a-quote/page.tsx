@@ -30,7 +30,7 @@ export default async function RequestAQuotePage({ searchParams }: { searchParams
           </div>
           <div className="space-y-6">
             <ContactAside title="Questions about an order?" />
-            <p className="text-[14px] leading-[1.6] text-ink-2">
+            <p className="text-[16px] leading-[1.6] text-ink-2">
               Prices depend on product, quantity, packaging and destination, so we quote each request individually.
             </p>
           </div>

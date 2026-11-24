@@ -33,7 +33,7 @@ export default function TermsPage() {
             <p>[Governing law and jurisdiction, for example the laws of Alberta and the federal laws of Canada applicable there, to be confirmed by legal counsel.]</p>
             <h2>Contact</h2>
             <p>Questions about these terms? <Link href="/contact">Contact us</Link>.</p>
-            <p className="text-[14px] text-ink-2">Last updated: [date of approval]</p>
+            <p className="text-[16px] text-ink-2">Last updated: [date of approval]</p>
           </Prose>
         </div>
       </section>

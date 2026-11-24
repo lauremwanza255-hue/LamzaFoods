@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { useId } from 'react';
 
 type Common = {
   name: string;
@@ -11,6 +10,9 @@ type Common = {
   required?: boolean;
   className?: string;
 };
+
+/** Stable id derived from the field name, so the error summary can link to each field. */
+export const fieldId = (name: string) => `field-${name.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
 
 function describedBy(id: string, hint?: string, error?: string) {
   return [hint ? `${id}-hint` : '', error ? `${id}-error` : ''].filter(Boolean).join(' ') || undefined;
@@ -63,7 +65,7 @@ export function TextField({
   onChange: (v: string) => void;
   inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
 }) {
-  const id = useId();
+  const id = fieldId(p.name);
   return (
     <div className={p.className}>
       <Label htmlFor={id} label={p.label} required={p.required} />
@@ -93,7 +95,7 @@ export function SelectField({
   placeholder = 'Choose an option',
   ...p
 }: Common & { options: readonly string[]; value: string; onChange: (v: string) => void; placeholder?: string }) {
-  const id = useId();
+  const id = fieldId(p.name);
   return (
     <div className={p.className}>
       <Label htmlFor={id} label={p.label} required={p.required} />
@@ -126,7 +128,7 @@ export function TextareaField({
   rows = 5,
   ...p
 }: Common & { value: string; onChange: (v: string) => void; rows?: number }) {
-  const id = useId();
+  const id = fieldId(p.name);
   return (
     <div className={p.className}>
       <Label htmlFor={id} label={p.label} required={p.required} />
@@ -153,13 +155,14 @@ export function CheckboxGroup({
   onChange,
   ...p
 }: Common & { options: readonly string[]; value: string[]; onChange: (v: string[]) => void }) {
-  const id = useId();
+  const id = fieldId(p.name);
   return (
     <fieldset
       className={p.className}
       aria-invalid={p.error ? true : undefined}
       aria-describedby={describedBy(id, p.hint, p.error)}
       id={id}
+      tabIndex={-1}
       data-field={p.name}
     >
       <legend className="field-label">
@@ -205,7 +208,7 @@ export function CheckboxGroup({
 }
 
 export function ConsentCheckbox({ checked, onChange, error }: { checked: boolean; onChange: (v: boolean) => void; error?: string }) {
-  const id = useId();
+  const id = fieldId('consent');
   return (
     <div>
       <label htmlFor={id} className="flex cursor-pointer items-start gap-3 text-[15px] leading-[1.5] text-navy">

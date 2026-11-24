@@ -27,7 +27,7 @@ export function TrustBar() {
               </span>
               <div>
                 <h2 className="text-[15px] font-semibold leading-tight lg:text-[max(12.5px,calc(11*var(--u)))]">{f.title}</h2>
-                <p className="mt-1 text-[14px] leading-[1.45] text-white/85 lg:mt-[calc(4*var(--u))] lg:max-w-[calc(178*var(--u))] lg:text-[max(11.5px,calc(9.6*var(--u)))] lg:leading-[1.4]">
+                <p className="mt-1 text-[16px] leading-[1.45] text-white/85 lg:mt-[calc(4*var(--u))] lg:max-w-[calc(178*var(--u))] lg:text-[max(11.5px,calc(9.6*var(--u)))] lg:leading-[1.4]">
                   {f.description}
                 </p>
               </div>

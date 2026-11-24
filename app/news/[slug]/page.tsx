@@ -34,7 +34,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <div className="container-site max-w-[820px] lg:max-w-[calc(720*var(--u))]">
           <Breadcrumbs tone="light" items={[{ name: 'News & Insights', path: '/news' }, { name: a.title, path: `/news/${a.slug}` }]} />
           {a.status === 'draft' && (
-            <p className="mt-6 rounded-sm border border-dashed border-[#c98a00] bg-[#fff8e6] px-4 py-2.5 text-[14px] text-[#6b4a00]">
+            <p className="mt-6 rounded-sm border border-dashed border-[#c98a00] bg-[#fff8e6] px-4 py-2.5 text-[16px] text-[#6b4a00]">
               <strong>Draft article for layout review.</strong> It is hidden on the live site until it is approved and published.
             </p>
           )}
@@ -42,7 +42,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <h1 id="article-title" className="mt-2 font-display text-[clamp(1.9rem,5vw,2.6rem)] font-bold leading-[1.15] text-navy">
             {a.title}
           </h1>
-          <p className="mt-3 text-[14px] text-ink-2">
+          <p className="mt-3 text-[16px] text-ink-2">
             {a.author}
             {a.status === 'published' && (
               <>

@@ -20,11 +20,11 @@ export function AboutSection() {
           <div className="relative mx-5 -mt-12 rounded-[4px] bg-green p-5 sm:mx-8 sm:max-w-[340px] lg:absolute lg:bottom-[calc(13*var(--u))] lg:left-[calc(30*var(--u))] lg:m-0 lg:w-[calc(156*var(--u))] lg:max-w-none lg:p-[calc(13*var(--u))]">
             <div className="flex items-center gap-3 lg:gap-[calc(9*var(--u))]">
               <Award aria-hidden="true" strokeWidth={1.3} className="size-9 shrink-0 lg:size-[calc(30*var(--u))]" />
-              <p className="text-[14px] font-semibold uppercase leading-[1.3] lg:text-[max(11.5px,calc(10.4*var(--u)))]">
+              <p className="text-[16px] font-semibold uppercase leading-[1.3] lg:text-[max(11.5px,calc(10.4*var(--u)))]">
                 Quality you can trust
               </p>
             </div>
-            <p className="mt-3 text-[14px] leading-[1.5] lg:mt-[calc(9*var(--u))] lg:text-[max(11.5px,calc(10*var(--u)))] lg:leading-[1.45]">
+            <p className="mt-3 text-[16px] leading-[1.5] lg:mt-[calc(9*var(--u))] lg:text-[max(11.5px,calc(10*var(--u)))] lg:leading-[1.45]">
               Food safety, traceability and sustainability are at the heart of everything we do.
             </p>
           </div>
@@ -37,7 +37,7 @@ export function AboutSection() {
             <span className="lg:block">Committed to quality.</span>
           </h2>
           <span aria-hidden="true" className="rule-green mt-4 lg:mt-[calc(12*var(--u))]" />
-          <p className="mt-4 max-w-[60ch] text-[15px] leading-[1.6] text-white/88 lg:mt-[calc(12*var(--u))] lg:max-w-[calc(372*var(--u))] lg:text-[max(11.5px,calc(10*var(--u)))] lg:leading-[1.5]">
+          <p className="mt-4 max-w-[60ch] text-[16px] leading-[1.6] text-white/88 lg:mt-[calc(12*var(--u))] lg:max-w-[calc(372*var(--u))] lg:text-[max(11.5px,calc(10*var(--u)))] lg:leading-[1.5]">
             We are passionate about connecting African producers with global markets. Our mission is to provide nutritious,
             authentic and sustainable food products while creating value for our partners and communities.
           </p>

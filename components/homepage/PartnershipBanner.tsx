@@ -22,7 +22,7 @@ export function PartnershipBanner() {
           <h2 id="partner-title" className="font-display text-[26px] leading-tight lg:text-[calc(18.5*var(--u))]">
             Let’s grow together.
           </h2>
-          <p className="mt-2 max-w-[52ch] text-[15px] leading-[1.55] text-white/90 lg:mt-[calc(6*var(--u))] lg:max-w-[calc(300*var(--u))] lg:text-[max(12px,calc(10*var(--u)))] lg:leading-[1.55]">
+          <p className="mt-2 max-w-[52ch] text-[16px] leading-[1.55] text-white/90 lg:mt-[calc(6*var(--u))] lg:max-w-[calc(300*var(--u))] lg:text-[max(12px,calc(10*var(--u)))] lg:leading-[1.55]">
             We partner with retailers, distributors and businesses that share our commitment to quality and excellence.
           </p>
         </div>

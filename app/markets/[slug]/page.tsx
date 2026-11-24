@@ -53,7 +53,7 @@ export default async function MarketPage({ params }: { params: Promise<{ slug: s
               {m.howWeHelp.map((h) => (
                 <li key={h.title} className="border-l-2 border-green pl-4">
                   <p className="font-semibold text-navy">{h.title}</p>
-                  <p className="mt-1 text-[15.5px] leading-[1.6] text-ink-2">{h.body}</p>
+                  <p className="mt-1 text-[16px] leading-[1.6] text-ink-2">{h.body}</p>
                 </li>
               ))}
             </ul>

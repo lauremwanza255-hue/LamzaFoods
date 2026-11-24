@@ -19,7 +19,7 @@ export function NewsCard({ article, featured = false }: { article: NewsArticle; 
             {article.title}
           </Link>
         </h2>
-        <p className="mt-3 text-[15px] leading-[1.6] text-ink-2">{article.excerpt}</p>
+        <p className="mt-3 text-[16px] leading-[1.6] text-ink-2">{article.excerpt}</p>
         <p className="mt-auto pt-4 text-[13px] text-ink-2">
           {article.status === 'draft' ? (
             <span className="rounded-sm bg-[#fff8e6] px-2 py-0.5 font-semibold text-[#6b4a00]">Draft – not published</span>

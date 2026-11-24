@@ -93,7 +93,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               </dl>
 
               {details.length === 0 && (
-                <p className="mt-5 flex gap-3 rounded-sm bg-gray-soft px-4 py-3 text-[15px] text-navy">
+                <p className="mt-5 flex gap-3 rounded-sm bg-gray-soft px-4 py-3 text-[16px] text-navy">
                   <Info aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-green" />
                   <span>
                     Contact us for product specifications, including origin, packaging, storage, shelf life and allergen

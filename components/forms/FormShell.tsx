@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Loader2 } from 'lucide-react';
 import { Alert } from '@/components/ui/Alert';
 import type { SubmitState } from './useInquiry';
+import { fieldId } from './fields';
 
 const fieldLabels: Record<string, string> = {
   fullName: 'Full name',
@@ -34,22 +35,27 @@ function labelFor(key: string) {
 export function FormShell({
   state,
   errors,
+  showSummary = true,
   summaryRef,
   resultRef,
   onSubmit,
   submitLabel,
   successTitle,
   onReset,
+  onFieldBlur,
   children,
 }: {
   state: SubmitState;
   errors: Record<string, string>;
+  showSummary?: boolean;
   summaryRef: React.RefObject<HTMLDivElement | null>;
   resultRef: React.RefObject<HTMLDivElement | null>;
   onSubmit: () => void;
   submitLabel: string;
   successTitle: string;
   onReset: () => void;
+  /** Called with the field name when focus leaves a field (inline validation). */
+  onFieldBlur?: (name: string) => void;
   children: React.ReactNode;
 }) {
   const errorKeys = Object.keys(errors).filter((k) => !['startedAt', 'company_website', 'type'].includes(k));
@@ -82,16 +88,37 @@ export function FormShell({
         e.preventDefault();
         onSubmit();
       }}
+      onBlur={(e) => {
+        const target = e.target as unknown as HTMLInputElement;
+        const name = target.name;
+        if (!onFieldBlur || !name || name === 'company_website') return;
+        // Checkbox groups: validate only when focus leaves the whole group.
+        const group = target.closest('fieldset[data-field]');
+        if (group && group.contains(e.relatedTarget as Node)) return;
+        onFieldBlur(name);
+      }}
       className="relative space-y-6"
       aria-busy={state.status === 'submitting'}
     >
-      {errorKeys.length > 0 && (
+      {showSummary && errorKeys.length > 0 && (
         <div ref={summaryRef} tabIndex={-1} className="outline-none">
           <Alert tone="error" title={`Check ${errorKeys.length === 1 ? '1 field' : `${errorKeys.length} fields`} before sending`}>
             <ul className="list-disc pl-5">
               {errorKeys.map((k) => (
                 <li key={k}>
-                  {labelFor(k)}: {errors[k]}
+                  <a
+                    href={`#${fieldId(k)}`}
+                    className="underline underline-offset-2 hover:no-underline"
+                    onClick={(e) => {
+                      const el = document.getElementById(fieldId(k));
+                      if (!el) return;
+                      e.preventDefault();
+                      el.scrollIntoView({ block: 'center' });
+                      el.focus({ preventScroll: true });
+                    }}
+                  >
+                    {labelFor(k)}: {errors[k]}
+                  </a>
                 </li>
               ))}
             </ul>

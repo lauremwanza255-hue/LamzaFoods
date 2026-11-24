@@ -35,6 +35,7 @@ export function PartnershipForm() {
   return (
     <FormShell
       {...f}
+      onFieldBlur={(name) => f.validateField(name, { type: 'partnership', ...v })}
       onSubmit={() => f.submit({ type: 'partnership', ...v })}
       submitLabel="Submit partnership inquiry"
       successTitle="Partnership inquiry received"

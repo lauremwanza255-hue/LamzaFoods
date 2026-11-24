@@ -30,7 +30,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
         <div className="container-site grid gap-10 lg:grid-cols-[1fr_320px]">
           <div className="rounded-md bg-white p-6 shadow-[0_1px_2px_rgba(26,36,83,0.06)] sm:p-8">
             <h2 id="contact-form-heading" className="title-section">Send us a message</h2>
-            <p className="mb-6 mt-2 text-[15px] text-ink-2">Choose a subject so your message reaches the right person.</p>
+            <p className="mb-6 mt-2 text-[16px] text-ink-2">Choose a subject so your message reaches the right person.</p>
             <ContactForm key={`${defaultSubject}-${productName}`} defaultSubject={defaultSubject} product={productName} />
           </div>
           <div className="space-y-6">

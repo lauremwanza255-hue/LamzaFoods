@@ -20,6 +20,7 @@ export function ContactForm({ defaultSubject = '', product = '' }: { defaultSubj
   return (
     <FormShell
       {...f}
+      onFieldBlur={(name) => f.validateField(name, { type: 'contact', ...v, product: product || undefined })}
       onSubmit={() => f.submit({ type: 'contact', ...v, product: product || undefined })}
       submitLabel="Send message"
       successTitle="Message sent"
@@ -30,7 +31,7 @@ export function ContactForm({ defaultSubject = '', product = '' }: { defaultSubj
     >
       <Honeypot value={v.company_website} onChange={set('company_website')} />
       {product && (
-        <p className="rounded-sm bg-gray-soft px-4 py-3 text-[15px] text-navy">
+        <p className="rounded-sm bg-gray-soft px-4 py-3 text-[16px] text-navy">
           Product: <strong>{product}</strong>
         </p>
       )}

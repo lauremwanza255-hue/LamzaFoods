@@ -11,7 +11,7 @@ export function FeatureGrid({ items, columns = 3 }: { items: FeatureItem[]; colu
         <li key={it.title} className="border-t-2 border-green pt-5">
           <Icon name={it.icon} className="size-9 text-green" />
           <h3 className="mt-3 font-display text-[18px] font-bold leading-snug text-navy">{it.title}</h3>
-          <p className="mt-2 text-[15px] leading-[1.6] text-ink-2">{it.body}</p>
+          <p className="mt-2 text-[16px] leading-[1.6] text-ink-2">{it.body}</p>
         </li>
       ))}
     </ul>

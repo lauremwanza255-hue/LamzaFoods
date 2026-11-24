@@ -97,3 +97,34 @@ test('quote form adds and removes product lines', async ({ page }) => {
   await page.getByRole('button', { name: 'Send quote request' }).click();
   await expect(page.getByText('Enter your quantity.').last()).toBeVisible();
 });
+
+test('error summary items link to and focus their fields', async ({ page }) => {
+  await page.goto('/contact');
+  await page.getByRole('button', { name: 'Send message' }).click();
+  const link = page.getByRole('link', { name: /Email address: Enter your email address/ });
+  await expect(link).toBeVisible();
+  await link.click();
+  await expect(page.getByRole('textbox', { name: /Email address/ })).toBeFocused();
+});
+
+test('fields are validated when the user leaves them, not while tabbing through empty fields', async ({ page }) => {
+  await page.goto('/contact');
+  const name = page.getByLabel('Full name');
+  await name.focus();
+  await page.keyboard.press('Tab'); // leave an empty field: no error yet
+  await expect(page.getByText('Enter your full name.')).toHaveCount(0);
+  const email = page.getByLabel('Email address');
+  await email.fill('ada@');
+  await email.blur();
+  await expect(email).toHaveAttribute('aria-invalid', 'true');
+  await expect(page.getByText(/Enter a valid email address/)).toBeVisible();
+  await email.fill('ada@example.com');
+  await email.blur();
+  await expect(email).not.toHaveAttribute('aria-invalid', 'true');
+});
+
+test('buttons show a pointer cursor', async ({ page }) => {
+  await page.goto('/contact');
+  const cursor = await page.getByRole('button', { name: 'Send message' }).evaluate((e) => getComputedStyle(e).cursor);
+  expect(cursor).toBe('pointer');
+});

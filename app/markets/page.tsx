@@ -42,7 +42,7 @@ export default function MarketsPage() {
                         </Link>
                       </h2>
                     </div>
-                    <p className="mt-2 text-[15.5px] leading-[1.6] text-ink-2">{m.summary}</p>
+                    <p className="mt-2 text-[16px] leading-[1.6] text-ink-2">{m.summary}</p>
                     <span aria-hidden="true" className="link-arrow mt-auto pt-5">
                       Learn more <ArrowRight className="size-[1.2em]" />
                     </span>

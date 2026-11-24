@@ -53,7 +53,7 @@ export default function OurProcessPage() {
                     <Icon name={s.icon} className="size-6 text-green" />
                     <h3 className="font-display text-[19px] font-bold text-navy">{s.title}</h3>
                   </div>
-                  <p className="mt-2 text-[15.5px] leading-[1.65] text-ink-2">{s.body}</p>
+                  <p className="mt-2 text-[16px] leading-[1.65] text-ink-2">{s.body}</p>
                 </div>
               </li>
             ))}

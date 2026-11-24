@@ -25,7 +25,7 @@ export function BenefitsSection() {
               <h3 className="mt-3 font-display text-[16px] font-bold leading-tight text-navy lg:mt-[calc(9*var(--u))] lg:text-[max(12px,calc(10.6*var(--u)))]">
                 {b.title}
               </h3>
-              <p className="mt-1.5 max-w-[26ch] text-[14px] leading-[1.45] text-ink-2 lg:mt-[calc(5*var(--u))] lg:max-w-[calc(150*var(--u))] lg:text-[max(11.5px,calc(9.6*var(--u)))] lg:leading-[1.4]">
+              <p className="mt-1.5 max-w-[26ch] text-[16px] leading-[1.45] text-ink-2 lg:mt-[calc(5*var(--u))] lg:max-w-[calc(150*var(--u))] lg:text-[max(11.5px,calc(9.6*var(--u)))] lg:leading-[1.4]">
                 {b.description}
               </p>
             </li>

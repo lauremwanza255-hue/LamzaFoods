@@ -76,7 +76,7 @@ export function ProductCatalogue({
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-b border-line pb-4">
-        <p role="status" aria-live="polite" className="text-[15px] text-ink-2">
+        <p role="status" aria-live="polite" className="text-[16px] text-ink-2">
           Showing <strong className="text-navy">{results.length}</strong> {results.length === 1 ? 'product' : 'products'}
           {q && (
             <>
@@ -110,7 +110,7 @@ export function ProductCatalogue({
         ) : (
           <div className="rounded-md border border-line-strong bg-gray-soft/50 px-6 py-12 text-center">
             <h2 className="font-display text-[20px] font-bold text-navy">No products match your search</h2>
-            <p className="mx-auto mt-2 max-w-[48ch] text-[15px] text-ink-2">
+            <p className="mx-auto mt-2 max-w-[48ch] text-[16px] text-ink-2">
               Try a different word, or clear the filters to see the full catalogue. Looking for something we don’t list?
               Ask our team.
             </p>

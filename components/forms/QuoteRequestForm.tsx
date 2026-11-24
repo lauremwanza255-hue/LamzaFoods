@@ -42,6 +42,9 @@ export function QuoteRequestForm({ preselected }: { preselected?: string }) {
   return (
     <FormShell
       {...f}
+      onFieldBlur={(name) =>
+        f.validateField(name, { type: 'quote', ...v, items: items.map(({ product, quantity, packaging }) => ({ product, quantity, packaging })) })
+      }
       onSubmit={() =>
         f.submit({
           type: 'quote',
@@ -65,7 +68,7 @@ export function QuoteRequestForm({ preselected }: { preselected?: string }) {
           {items.map((it, i) => (
             <li key={it.key} className="rounded-md border border-line-strong p-4">
               <div className="mb-3 flex items-center justify-between">
-                <p className="text-[14px] font-semibold text-navy">Product {i + 1}</p>
+                <p className="text-[16px] font-semibold text-navy">Product {i + 1}</p>
                 {items.length > 1 && (
                   <button
                     type="button"

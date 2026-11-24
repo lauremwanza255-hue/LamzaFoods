@@ -26,7 +26,7 @@ export function ContactAside({ title = 'Talk to our team' }: { title?: string })
           ))}
         </ul>
       ) : (
-        <p className="mt-3 text-[15px] text-ink-2">Use the form and our team will reply by email.</p>
+        <p className="mt-3 text-[16px] text-ink-2">Use the form and our team will reply by email.</p>
       )}
     </aside>
   );
