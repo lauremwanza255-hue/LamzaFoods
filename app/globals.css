@@ -1,0 +1,491 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------
+   Lamza Foods design tokens (official brand guide)
+   ------------------------------------------------------------------ */
+:root {
+  --brand-navy: #1a2453;
+  --brand-green: #38853f;
+  --brand-gray: #ebebed;
+  --brand-white: #ffffff;
+
+  /* Tonal variations, used only for accessibility and interaction states */
+  --brand-navy-deep: #141c43; /* hover on navy, footer divider ground */
+  --brand-navy-line: rgba(255, 255, 255, 0.14); /* dividers on navy */
+  --brand-green-hover: #2e7034; /* button hover (white text 5.9:1) */
+  --brand-green-press: #26602b;
+  --brand-green-light: #6cc174; /* green text on navy (6.3:1 for small text) */
+  --brand-green-text: #317a38; /* small green text on white/soft gray (5.2:1 / 4.7:1) */
+
+  --background-primary: var(--brand-white);
+  --background-secondary: var(--brand-gray);
+  --background-dark: var(--brand-navy);
+  --text-primary: var(--brand-navy);
+  --text-inverse: var(--brand-white);
+  --text-secondary: #50586b;
+  --text-muted-inverse: rgba(255, 255, 255, 0.82);
+  --button-primary: var(--brand-green);
+  --button-primary-text: var(--brand-white);
+  --border-color: var(--brand-gray);
+  --border-strong: #d9dae0;
+
+  --font-primary: var(--font-hind), 'Hind Siliguri', system-ui, sans-serif;
+  --font-display: var(--font-baskerville), 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+
+  --radius-small: 3px;
+  --radius-medium: 5px;
+  --container-width: 1440px;
+
+  /*
+   * Reference unit. The homepage reference is 1024px wide; at desktop widths every
+   * measurement is written in reference pixels times --u, so proportions match the
+   * reference and scale up to wide screens. Below 1024px --u is 1px and the
+   * tablet/mobile layouts set their own sizes.
+   */
+  --u: 1px;
+  --gutter: 20px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --gutter: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --u: min(calc(100vw / 1024), 1.36px);
+    --gutter: calc(60 * var(--u));
+  }
+}
+
+@theme inline {
+  --color-navy: var(--brand-navy);
+  --color-navy-deep: var(--brand-navy-deep);
+  --color-green: var(--brand-green);
+  --color-green-hover: var(--brand-green-hover);
+  --color-green-light: var(--brand-green-light);
+  --color-gray-soft: var(--brand-gray);
+  --color-ink-2: var(--text-secondary);
+  --color-line: var(--border-color);
+  --color-line-strong: var(--border-strong);
+  --font-sans: var(--font-primary);
+  --font-display: var(--font-display);
+  --radius-sm: var(--radius-small);
+  --radius-md: var(--radius-medium);
+}
+
+@layer base {
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--background-primary);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+:where(h1, h2, h3, h4) {
+  text-wrap: balance;
+}
+
+:where(p) {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 3px solid var(--brand-green);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  outline-color: var(--brand-green-light);
+}
+
+::selection {
+  background: var(--brand-green);
+  color: var(--brand-white);
+}
+
+}
+
+@layer components {
+/* ------------------------------------------------------------------
+   Layout helpers
+   ------------------------------------------------------------------ */
+.container-site {
+  width: 100%;
+  max-width: calc(1024 * var(--u));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (max-width: 1023.98px) {
+  .container-site {
+    max-width: 960px;
+  }
+}
+
+/* Header uses a slightly wider inset, like the reference (logo at 37px). */
+.container-header {
+  width: 100%;
+  max-width: calc(1024 * var(--u));
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+@media (min-width: 1024px) {
+  .container-header {
+    padding-inline: calc(34 * var(--u));
+  }
+}
+
+/* ------------------------------------------------------------------
+   Type
+   ------------------------------------------------------------------ */
+.eyebrow {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--brand-green-text);
+}
+
+.on-dark .eyebrow {
+  color: var(--brand-green-light);
+}
+
+.title-section {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  color: var(--brand-navy);
+}
+
+.on-dark .title-section {
+  color: var(--brand-white);
+}
+
+.rule-green {
+  display: block;
+  width: 34px;
+  height: 2px;
+  background: var(--brand-green);
+}
+
+@media (min-width: 1024px) {
+  .eyebrow {
+    font-size: max(11.5px, calc(10.5 * var(--u)));
+  }
+  .title-section {
+    font-size: calc(23 * var(--u));
+  }
+  .rule-green {
+    width: calc(34 * var(--u));
+    height: max(2px, calc(2 * var(--u)));
+  }
+}
+
+/* ------------------------------------------------------------------
+   Buttons
+   ------------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: var(--radius-small);
+  border: 1px solid transparent;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 120ms ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn[aria-disabled='true'],
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary {
+  background: var(--button-primary);
+  color: var(--button-primary-text);
+}
+
+.btn-primary:hover {
+  background: var(--brand-green-hover);
+}
+
+.btn-primary:active {
+  background: var(--brand-green-press);
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: var(--brand-white);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-outline-light:hover {
+  background: var(--brand-white);
+  color: var(--brand-navy);
+}
+
+.btn-outline-dark {
+  background: transparent;
+  color: var(--brand-navy);
+  border-color: var(--brand-navy);
+}
+
+.btn-outline-dark:hover {
+  background: var(--brand-navy);
+  color: var(--brand-white);
+}
+
+.btn .btn-arrow {
+  width: 1.15em;
+  height: 1.15em;
+  transition: transform 180ms ease;
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(2px);
+}
+
+@media (min-width: 1024px) {
+  .btn {
+    min-height: calc(36 * var(--u));
+    padding: 0 calc(16 * var(--u));
+    font-size: max(12px, calc(10.8 * var(--u)));
+  }
+  .btn-sm {
+    min-height: calc(30 * var(--u));
+    padding: 0 calc(14 * var(--u));
+  }
+}
+
+/* Text link with arrow, e.g. "VIEW PRODUCT ->" */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--brand-green);
+  text-decoration: none;
+}
+
+.link-arrow svg {
+  transition: transform 180ms ease;
+}
+
+.link-arrow:hover svg,
+.group:hover .link-arrow svg {
+  transform: translateX(2px);
+}
+
+@media (min-width: 1024px) {
+  .link-arrow {
+    font-size: max(11px, calc(9.6 * var(--u)));
+  }
+}
+
+/* Running-text links */
+.prose-link {
+  color: var(--brand-green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.prose-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ------------------------------------------------------------------
+   Forms
+   ------------------------------------------------------------------ */
+.field-label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--brand-navy);
+  margin-bottom: 6px;
+}
+
+.field-hint {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.field-error {
+  font-size: 13px;
+  color: #b42318;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.field-control {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-small);
+  background: var(--brand-white);
+  color: var(--brand-navy);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.4;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.field-control::placeholder {
+  color: #7a8090;
+}
+
+.field-control:hover {
+  border-color: #b9bcc6;
+}
+
+.field-control:focus {
+  outline: none;
+  border-color: var(--brand-green);
+  box-shadow: 0 0 0 3px rgba(56, 133, 63, 0.22);
+}
+
+.field-control[aria-invalid='true'] {
+  border-color: #b42318;
+}
+
+select.field-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231A2453' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+textarea.field-control {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* ------------------------------------------------------------------
+   Brand pattern
+   ------------------------------------------------------------------ */
+.bg-brand-pattern {
+  background-image: url('/brand/brand-pattern.svg');
+  background-size: 96px 96px;
+}
+
+/* ------------------------------------------------------------------
+   Navigation
+   ------------------------------------------------------------------ */
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: max(11px, calc(10.4 * var(--u)));
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--brand-navy);
+  text-decoration: none;
+  white-space: nowrap;
+  padding-block: 8px;
+  transition: color 150ms ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(-8 * var(--u));
+  height: 2px;
+  background: var(--brand-green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+
+.nav-link:hover {
+  color: var(--brand-green);
+}
+
+.nav-link.is-active {
+  color: var(--brand-green);
+}
+
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+button.nav-link::after {
+  right: 1.4em;
+}
+}
+
+/* ------------------------------------------------------------------
+   Motion
+   ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

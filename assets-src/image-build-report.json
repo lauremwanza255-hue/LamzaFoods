@@ -1,0 +1,90 @@
+[
+  {
+    "name": "hero",
+    "kind": "crop",
+    "from": "636x368",
+    "out": "1400x810",
+    "kb": 129
+  },
+  {
+    "name": "dried-smoked-catfish",
+    "kind": "upscaled",
+    "from": "552x448",
+    "out": "552x448",
+    "kb": 29
+  },
+  {
+    "name": "dried-lake-malawi-sardines-usipa",
+    "kind": "upscaled",
+    "from": "544x448",
+    "out": "552x448",
+    "kb": 27
+  },
+  {
+    "name": "cassava-flour",
+    "kind": "upscaled",
+    "from": "552x448",
+    "out": "552x448",
+    "kb": 20
+  },
+  {
+    "name": "baobab-powder",
+    "kind": "upscaled",
+    "from": "548x448",
+    "out": "552x448",
+    "kb": 20
+  },
+  {
+    "name": "african-spices",
+    "kind": "upscaled",
+    "from": "544x448",
+    "out": "552x448",
+    "kb": 33
+  },
+  {
+    "name": "edible-dried-caterpillars",
+    "kind": "upscaled",
+    "from": "548x448",
+    "out": "552x448",
+    "kb": 25
+  },
+  {
+    "name": "farmland",
+    "kind": "crop",
+    "from": "396x256",
+    "out": "1200x776",
+    "kb": 95
+  },
+  {
+    "name": "partnership-handshake",
+    "kind": "crop",
+    "from": "334x87",
+    "out": "1000x260",
+    "kb": 10
+  },
+  {
+    "name": "packaging-gift-box",
+    "kind": "crop",
+    "from": "279x279",
+    "out": "900x900",
+    "kb": 31
+  },
+  {
+    "name": "packaging-shopping-bag",
+    "kind": "crop",
+    "from": "279x279",
+    "out": "900x900",
+    "kb": 19
+  },
+  {
+    "name": "packaging-takeaway",
+    "kind": "crop",
+    "from": "280x279",
+    "out": "900x897",
+    "kb": 36
+  },
+  {
+    "name": "og",
+    "out": "1200x630"
+  }
+]
