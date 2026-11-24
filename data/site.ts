@@ -12,7 +12,13 @@ export const site = {
   shortDescription:
     'Lamza Foods sources, processes and delivers high-quality African food products to retailers, wholesalers and consumers across Canada and beyond.',
   footerBlurb: 'Bringing Africa’s finest foods to the world with quality, integrity and care.',
-  url: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/$/, ''),
+  // Explicit URL first; on Vercel fall back to the project's production domain, then the deployment URL.
+  url: (
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
+    (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`) ||
+    'http://localhost:3000'
+  ).replace(/\/$/, ''),
   logo: {
     primary: '/brand/logo-primary.svg',
     dark: '/brand/logo-dark.svg',
